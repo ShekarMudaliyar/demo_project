@@ -1,6 +1,7 @@
 import 'package:demo_project/bloc/posts_bloc.dart';
 import 'package:demo_project/models/usersmodel.dart';
 import 'package:demo_project/services/api_service.dart';
+import 'package:demo_project/services/validators.dart';
 import 'package:flutter/material.dart';
 
 class CreatePost extends StatefulWidget {
@@ -49,12 +50,7 @@ class _CreatePostState extends State<CreatePost> {
                           alignLabelWithHint: true,
                           border: OutlineInputBorder(),
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter post title';
-                          }
-                          return null;
-                        },
+                        validator: Validators.titleValidator,
                       ),
                       const SizedBox(
                         height: 10,
@@ -68,12 +64,7 @@ class _CreatePostState extends State<CreatePost> {
                           alignLabelWithHint: true,
                           border: OutlineInputBorder(),
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter post body';
-                          }
-                          return null;
-                        },
+                        validator: Validators.bodyValidator,
                       ),
                       const SizedBox(
                         height: 10,
